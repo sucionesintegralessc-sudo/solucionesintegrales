@@ -1,0 +1,138 @@
+/* =================================================================ameron
+   ESTILOS DE SEGUNDO NIVEL - SOLUCIONES INTEGRALES (style-segundonivel.css)
+   ================================================================ */
+
+/* 1. Isotipo corporativo con aparición inmediata (0.1s) */
+.logo-animado {
+    max-width: 110px;
+    height: auto;
+    margin-bottom: 25px;
+    opacity: 0;
+    animation: isotipoCinematico 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.1s forwards;
+}
+
+@keyframes isotipoCinematico {
+    0% {
+        opacity: 0;
+        transform: scale(0.95);
+        filter: brightness(0.6);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+        filter: brightness(1);
+    }
+}
+
+/* 2. Despliegue vertical fluido del contenido (Cascada de 5 segundos) */
+.fade-content-1 {
+    opacity: 0;
+    transform: translateY(-25px);
+    animation: despliegueVertical 5.0s cubic-bezier(0.16, 1, 0.3, 1) 0.8s forwards;
+}
+
+.fade-content-2 {
+    opacity: 0;
+    transform: translateY(-25px);
+    animation: despliegueVertical 5.0s cubic-bezier(0.16, 1, 0.3, 1) 1.2s forwards;
+}
+
+.fade-content-3 {
+    opacity: 0;
+    transform: translateY(-25px);
+    animation: despliegueVertical 5.0s cubic-bezier(0.16, 1, 0.3, 1) 1.6s forwards;
+}
+
+@keyframes despliegueVertical {
+    0% {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 3. Botón de Retorno Inferior con aparición diferida (Delay de 5s + Fade-in) */
+.btn-retorno-inferior {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 8px 20px;
+    background: transparent;
+    border: 1px solid rgba(0, 255, 213, 0.4);
+    color: #00ffd5;
+    text-decoration: none;
+    font-size: 0.9rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    opacity: 0;
+    animation: aparecerBotonRetorno 2.5s ease-in-out 5.0s forwards;
+}
+
+.btn-retorno-inferior:hover {
+    background: rgba(0, 255, 213, 0.1);
+    border-color: #00ffd5;
+    box-shadow: 0 0 10px rgba(0, 255, 213, 0.2);
+}
+
+@keyframes aparecerBotonRetorno {
+    0% {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 4. Destello único de las tarjetas sincronizado */
+.hub-card::after {
+    animation: destelloUnicoTarjetas 2.0s ease-in-out forwards !important;
+}
+
+.grid-main .hub-card:nth-child(1)::after { animation-delay: 1.8s; }
+.grid-main .hub-card:nth-child(2)::after { animation-delay: 2.1s; }
+.grid-main .hub-card:nth-child(3)::after { animation-delay: 2.4s; }
+.grid-main .hub-card:nth-child(4)::after { animation-delay: 2.7s; }
+
+@keyframes destelloUnicoTarjetas {
+    0% {
+        transform: rotate(30deg) translateY(-100%);
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: rotate(30deg) translateY(100%);
+        opacity: 0;
+    }
+}
+
+/* 5. Pie de página minimalista de segundo nivel (con accesos secundarios discretos) */
+.footer-secundario {
+    margin-top: 25px;
+    text-align: center;
+    opacity: 0;
+    animation: despliegueVertical 5.0s cubic-bezier(0.16, 1, 0.3, 1) 1.6s forwards;
+}
+
+.footer-social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 10px;
+}
+
+.footer-social-links a {
+    color: rgba(0, 255, 213, 0.6);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.3s ease;
+}
+
+.footer-social-links a:hover {
+    color: #00ffd5;
+}
