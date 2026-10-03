@@ -46,13 +46,15 @@
 
         <!-- REJILLA DE SUBDIVISIÓN (TERCER NIVEL DIRECTO) -->
         <div class="grid-main fade-content-3" style="margin-top: 20px;">
-            <!-- Subtarjeta 1: Sistemas Solares Off-Grid -->
+            <!-- Subtarjeta 1: Sistemas e Iluminación Solar (Con Título Dinámico) -->
             <div class="hub-card" onclick="location.href='showroom_solares.html';" style="cursor: pointer;">
-                <h2>Sistemas Solares 100W - 500W</h2>
+                <h2>
+                    <span id="titulo-solar" class="titulo-animado-container" style="transition: opacity 0.4s ease;">Sistemas e Iluminación Solar</span>
+                </h2>
                 <ul>
-                    <li>Kits de iluminación autónoma off-grid</li>
-                    <li>Instalación profesional integrada</li>
-                    <li>Respaldo energético garantizado</li>
+                    <li>💡 <strong>Lámparas y reflectores para interiores:</strong> Autonomía de 12 a 14 horas sin dependencia eléctrica.</li>
+                    <li>🌙 <strong>Lámparas para postes y exteriores:</strong> Alumbrado perimetral de alto rendimiento.</li>
+                    <li>⚡ <em>¡Haz clic para ver modelos, potencias y asegurar tu espacio hoy!</em></li>
                 </ul>
             </div>
 
@@ -109,6 +111,43 @@
             </div>
         </div>
     </div>
+
+<!-- SCRIPT DE ANIMACIÓN DINÁMICA DEL TÍTULO -->
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const el = document.getElementById('titulo-solar');
+            if (!el) return;
+
+            // Esperar medio segundo tras cargar la página para iniciar el efecto
+            setTimeout(() => {
+                // 1. Desvanecer hacia afuera
+                el.style.opacity = '0';
+
+                setTimeout(() => {
+                    // 2. Cambiar texto a NUEVO PRODUCTO y aplicar clase de parpadeo rojo
+                    el.textContent = 'NUEVO PRODUCTO';
+                    el.classList.add('animar-blink-rojo');
+                    el.style.opacity = '1';
+
+                    // 3. Duración exacta del parpadeo: 3 segundos (3000ms)
+                    setTimeout(() => {
+                        // Desvanecer nuevamente para limpiar
+                        el.style.opacity = '0';
+
+                        setTimeout(() => {
+                            // 4. Regresar al texto original fijo de forma permanente
+                            el.classList.remove('animar-blink-rojo');
+                            el.textContent = 'Sistemas e Iluminación Solar';
+                            el.style.opacity = '1';
+                        }, 400); // Tiempo de desvanecimiento de salida
+
+                    }, 3000); // Exactamente 3 segundos de blinking
+
+                }, 400); // Tiempo de desvanecimiento de entrada
+
+            }, 500); // Retraso inicial al abrir la página
+        });
+    </script>
 
 </body>
 </html>

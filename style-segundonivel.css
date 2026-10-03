@@ -1,12 +1,41 @@
-/* =================================================================ameron
+/* =================================================================
    ESTILOS DE SEGUNDO NIVEL - SOLUCIONES INTEGRALES (style-segundonivel.css)
    ================================================================ */
 
+/* Contenedor general y adaptabilidad sin scroll */
+html, body {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #0b0f19;
+    color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 1100px;
+    height: 100vh;
+    margin: 0 auto;
+    padding: 12px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+/* Cabecera del Segundo Nivel */
+.header-top-container {
+    text-align: center;
+    margin-bottom: 5px;
+}
+
 /* 1. Isotipo corporativo con aparición inmediata (0.1s) */
 .logo-animado {
-    max-width: 110px;
+    max-width: 95px;
     height: auto;
-    margin-bottom: 25px;
+    margin-bottom: 8px;
     opacity: 0;
     animation: isotipoCinematico 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.1s forwards;
 }
@@ -24,7 +53,27 @@
     }
 }
 
-/* 2. Despliegue vertical fluido del contenido (Cascada de 5 segundos) */
+h1 {
+    color: #00ffd5;
+    font-size: 2rem;
+    margin: 5px 0;
+}
+
+.slogan {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.35rem;
+    color: #9ca3af;
+    margin-bottom: 5px;
+}
+
+.sub-title-text {
+    color: #00ffd5;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    font-size: 0.9rem;
+}
+
+/* 2. Despliegue vertical fluido del contenido (Cascada) */
 .fade-content-1 {
     opacity: 0;
     transform: translateY(-25px);
@@ -54,11 +103,136 @@
     }
 }
 
-/* 3. Botón de Retorno Inferior con aparición diferida (Delay de 5s + Fade-in) */
+/* Rejilla de Tarjetas (Hub Cards) forzada estrictamente a 2 columnas simétricas */
+.grid-main {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-bottom: 5px;
+}
+
+.hub-card {
+    background: rgba(17, 24, 39, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 20px 25px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(8px);
+    cursor: pointer;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.hub-card:hover {
+    transform: translateY(-3px);
+    border-color: #00ffd5;
+}
+
+.hub-card h2 {
+    color: #00ffd5;
+    font-size: 1.2rem;
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+.hub-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.hub-card li {
+    margin-bottom: 6px;
+    font-size: 0.9rem;
+    color: #d1d5db;
+    line-height: 1.4;
+}
+
+/* 4. Destello único de las tarjetas sincronizado */
+.hub-card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.05) 50%, rgba(255,255,255,0) 100%);
+    transform: rotate(30deg) translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+    animation: destelloUnicoTarjetas 2.0s ease-in-out forwards !important;
+}
+
+.grid-main .hub-card:nth-child(1)::after { animation-delay: 1.8s; }
+.grid-main .hub-card:nth-child(2)::after { animation-delay: 2.1s; }
+.grid-main .hub-card:nth-child(3)::after { animation-delay: 2.4s; }
+.grid-main .hub-card:nth-child(4)::after { animation-delay: 2.7s; }
+
+@keyframes destelloUnicoTarjetas {
+    0% {
+        transform: rotate(30deg) translateY(-100%);
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: rotate(30deg) translateY(100%);
+        opacity: 0;
+    }
+}
+
+/* Clases para la animación dinámica del título en rojo con 3 segundos exactos de blinking */
+.titulo-animado-container {
+    display: inline-block;
+}
+
+@keyframes blinkRojo {
+    0%, 100% { opacity: 1; color: #ff4d4d; }
+    50% { opacity: 0.2; color: #ff4d4d; }
+}
+
+.animar-blink-rojo {
+    animation: blinkRojo 0.6s ease-in-out 5; /* 5 ciclos de 0.6s suman exactamente 3 segundos de blinking */
+    color: #ff4d4d;
+    font-weight: bold;
+}
+
+/* Contenedor de acciones inferiores */
+.acciones-inferiores {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+/* Botón de WhatsApp Principal */
+.btn-wsp {
+    display: inline-block;
+    padding: 10px 22px;
+    background-color: #25d366;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 1rem;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    margin-bottom: 5px;
+}
+
+.btn-wsp:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+/* 3. Botón de Retorno Inferior */
 .btn-retorno-inferior {
     display: inline-block;
-    margin-top: 15px;
-    padding: 8px 20px;
+    margin-top: 5px;
+    padding: 6px 18px;
     background: transparent;
     border: 1px solid rgba(0, 255, 213, 0.4);
     color: #00ffd5;
@@ -87,43 +261,20 @@
     }
 }
 
-/* 4. Destello único de las tarjetas sincronizado */
-.hub-card::after {
-    animation: destelloUnicoTarjetas 2.0s ease-in-out forwards !important;
-}
-
-.grid-main .hub-card:nth-child(1)::after { animation-delay: 1.8s; }
-.grid-main .hub-card:nth-child(2)::after { animation-delay: 2.1s; }
-.grid-main .hub-card:nth-child(3)::after { animation-delay: 2.4s; }
-.grid-main .hub-card:nth-child(4)::after { animation-delay: 2.7s; }
-
-@keyframes destelloUnicoTarjetas {
-    0% {
-        transform: rotate(30deg) translateY(-100%);
-        opacity: 0;
-    }
-    50% {
-        opacity: 0.8;
-    }
-    100% {
-        transform: rotate(30deg) translateY(100%);
-        opacity: 0;
-    }
-}
-
-/* 5. Pie de página minimalista de segundo nivel (con accesos secundarios discretos) */
+/* 5. Pie de página minimalista de segundo nivel */
 .footer-secundario {
-    margin-top: 25px;
+    margin-top: 5px;
     text-align: center;
     opacity: 0;
     animation: despliegueVertical 5.0s cubic-bezier(0.16, 1, 0.3, 1) 1.6s forwards;
+    padding-bottom: 5px;
 }
 
 .footer-social-links {
     display: flex;
     justify-content: center;
     gap: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 .footer-social-links a {
@@ -135,4 +286,8 @@
 
 .footer-social-links a:hover {
     color: #00ffd5;
+}
+
+.footer-social-links span {
+    color: #6b7280;
 }

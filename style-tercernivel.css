@@ -1,0 +1,210 @@
+/* =================================================================
+   ESTILOS DE TERCER NIVEL - SOLUCIONES INTEGRALES (style-tercernivel.css)
+   ================================================================ */
+
+html, body {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #0b0f19;
+    color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
+}
+
+.page-wrapper-tercer {
+    max-width: 1150px;
+    height: 100vh;
+    margin: 0 auto;
+    padding: 12px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+/* Cabecera compacta */
+.header-tercer-nivel {
+    text-align: center;
+    margin-bottom: 2px;
+}
+
+.logo-container {
+    margin-bottom: 2px;
+}
+
+.logo-img {
+    max-width: 80px;
+    height: auto;
+}
+
+.header-tercer-nivel h1 {
+    color: #00ffd5;
+    font-size: 1.7rem;
+    margin: 3px 0;
+}
+
+.subtitulo {
+    font-size: 0.85rem;
+    color: #9ca3af;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.2;
+}
+
+/* Rejilla Maestra: Tarjeta superior a ancho completo, abajo 2 columnas */
+.container-detalles-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto auto;
+    gap: 15px;
+    margin: 8px 0;
+}
+
+/* La tarjeta de introducción ocupa las dos columnas de arriba */
+.detalle-card.intro-solar {
+    grid-column: span 2;
+    padding: 12px 20px;
+}
+
+.detalle-card.intro-solar p {
+    margin-bottom: 6px;
+}
+
+/* Lista horizontal para los beneficios de la introducción y aprovechar el ancho */
+.lista-beneficios-horizontal {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    padding: 0;
+    margin: 4px 0 0 0;
+    gap: 15px;
+}
+
+.lista-beneficios-horizontal li {
+    font-size: 0.82rem;
+    color: #d1d5db;
+    line-height: 1.3;
+}
+
+/* Tarjetas de productos abajo */
+.detalle-card {
+    background: rgba(17, 24, 39, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 14px 18px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(8px);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.detalle-card:hover {
+    transform: translateY(-2px);
+    border-color: #00ffd5;
+}
+
+.detalle-card h2 {
+    color: #00ffd5;
+    font-size: 1.05rem;
+    margin-top: 0;
+    margin-bottom: 6px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 4px;
+}
+
+.detalle-card p, .detalle-card li {
+    font-size: 0.82rem;
+    color: #d1d5db;
+    line-height: 1.3;
+    margin-bottom: 4px;
+}
+
+.lista-beneficios {
+    padding-left: 15px;
+    margin: 3px 0;
+}
+
+/* Acordeón de Especificaciones Técnicas */
+.specs-tecnicas {
+    margin: 6px 0;
+    font-size: 0.78rem;
+    color: #00ffd5;
+    cursor: pointer;
+    background: rgba(0, 255, 213, 0.05);
+    padding: 5px 8px;
+    border-radius: 6px;
+    border: 1px solid rgba(0, 255, 213, 0.2);
+}
+
+.specs-tecnicas summary {
+    font-weight: bold;
+    outline: none;
+}
+
+.specs-tecnicas p {
+    font-size: 0.75rem;
+    color: #9ca3af;
+    margin-top: 4px;
+    margin-bottom: 0;
+    line-height: 1.3;
+}
+
+/* Botón de WhatsApp Integrado */
+.cta-producto {
+    margin-top: 6px;
+}
+
+.btn-whatsapp {
+    display: block;
+    width: 100%;
+    padding: 7px;
+    background-color: #25d366;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 0.8rem;
+    box-sizing: border-box;
+    box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.btn-whatsapp:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+/* Pie de Página y Botón de Regresar */
+.footer-tercer {
+    text-align: center;
+    padding-bottom: 5px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 8px;
+}
+
+.cta-container {
+    margin-bottom: 4px;
+}
+
+.btn-regresar {
+    color: #00ffd5;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.btn-regresar:hover {
+    text-decoration: underline;
+}
+
+.footer-tercer p {
+    font-size: 0.72rem;
+    color: #9ca3af;
+    margin: 0;
+}
